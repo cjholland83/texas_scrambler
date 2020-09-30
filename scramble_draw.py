@@ -5,31 +5,48 @@ Created on Fri Jun  5 12:51:38 2020
 @author: hollachr
 """
 import pandas as pd
+import time
 
 # number of golfers in a team
 n_man_scramble = 4
 
 # record of all golfers handicaps comment out non players
 golfers ={
-        'holland':9,        
+        'holland':11,        
         'pazz':28,
         'rich':28,
-        'heath':22,
-        'angus':14,
+        'heath':25,
+        'angus':16,
         'snowy':13,
-        'sean':11,
-        'dametto':9,
-        'dylan':7,
-        'tic':18,
+        'sean':8,
+        #'dametto':9,
+        'dylan':6,
+        'tic':19,
         #'carrion':2,
-        'dorling':6,
-        'johan':20,
-        'james':22,
-        'jimmy':28,
-        'rough':18,
-        'ashley':18,
-        'dan':18,
-        'sam':27}
+        'dorling':5,
+        'johan':18,
+        #'james':22,
+        'jimmy':32,
+        #'rough':17,
+        'ashley':17,
+        #'dan':32,
+        'sam':27,
+        'fredrik':18,
+        'neil':21,
+        #'ben':12,
+        'barrett':30,
+        'pete':26,
+        'ian':14,
+        'reno':21,
+        'jason':9,
+        'flash':20,
+        'joe':36,
+        'tim':32,
+        'kasper':18,
+        'berry':4,
+        'scott':26,
+        'mason':8
+        }
 
 # handicapping function that returns /6 for 3 ball and /10 for 4 ball
 def handicapping(n_man_scramble):
@@ -76,9 +93,11 @@ for i in range(n_teams):
     df_team = pd.concat(team)
     
     # calculate team handicap based on /6 for 3 ball and /10 for 4 ball
-    handicap = round((df_team['handicap'].sum())/handicapping(n_man_scramble))
+    #handicap = round((df_team['handicap'].sum())/handicapping(n_man_scramble))
+    handicap = (df_team['handicap'].sum())/handicapping(n_man_scramble)
     
     # print details of each team and associated handicaps
     print(df_team)
     print('Handicap: ',handicap)
     print('')
+   #time.sleep(8)
